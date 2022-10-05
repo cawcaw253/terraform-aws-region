@@ -35,8 +35,8 @@ locals {
 }
 
 locals {
-  region_name = data.aws_region.this.name
-  region_code = lookup(local.region_code_map, local.region_name)
-  availability_zone_names = length(var.availability_zones) > 0 ? [for az in var.availability_zones : join("", [local.region_name, az])] : data.aws_availability_zones.available_zones.names
+  region_name                        = data.aws_region.this.name
+  region_code                        = lookup(local.region_code_map, local.region_name)
+  availability_zone_names            = length(var.availability_zones) > 0 ? [for az in var.availability_zones : join("", [local.region_name, az])] : data.aws_availability_zones.available_zones.names
   region_code_with_availability_zone = length(var.availability_zones) > 0 ? [for az in var.availability_zones : join("", [local.region_code, az])] : [for az in data.aws_availability_zones.available_zones.names : join("", [lookup(local.region_code_map, local.region_name), substr(az, -1, -1)])]
 }

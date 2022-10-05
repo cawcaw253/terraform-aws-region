@@ -6,6 +6,6 @@ variable "region_name" {
 
 variable "availability_zones" {
   description = "az codes of region"
-  default = []
-  type = list(string)
+  default     = []
+  type        = list(string)
 }
