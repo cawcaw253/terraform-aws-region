@@ -5,7 +5,7 @@ variable "region_name" {
 }
 
 variable "availability_zones" {
-  description = "az codes of region"
+  description = "availability zone codes of region"
   default     = []
   type        = list(string)
 }
